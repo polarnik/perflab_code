@@ -105,7 +105,7 @@ curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts | jq '.[] | .titl
 | Parameter| Value|
 | -------- | ---- |
 | Method |	GET |
-|URL |	http://wp.loadlab.ragozin.info/wp-json/wp/v2**<u>/users/</u>**|
+|URL |	http://wp.loadlab.ragozin.info/wp-json/wp/v2/users/|
 |Requires authentication? |	<u>**Yes**</u>|
 
 Аутентификация может работать странно, но она есть:
@@ -155,7 +155,7 @@ curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users -H "Authorization
 | Parameter                | Value                                                       |
 | -------------------------| ----------------------------------------------------------- |
 | Method                   |GET                                                          |
-| URL                      |http://wp.loadlab.ragozin.info/wp-json/wp/v2**<u>/posts/new</u>**|
+| URL                      |http://wp.loadlab.ragozin.info/wp-json/wp/v2/posts/new|
 | Requires authentication? |<u>**Yes**</u>                                               |
 
 
@@ -176,23 +176,12 @@ curl -X GET http://wp.loadlab.ragozin.info/wp-json/wp/v2/users -H "Authorization
 | format         | string            | default, standard, aside, chat, gallery, link, image, quote, status,  video, audio                                                     |
 | featured_image | string            |                                     |
 | media          | media             |                                     |
-|                |                   |                                     |
-|                |                   |                                     |
-|                |                   |                                     |
-|                |                   |                                     |
-|                |                   |                                     |
-|                |                   |                                     |
-|                |                   |                                     |
+| ...            |                   |                                     |
 
 ## Практическая работа с JMeter
 
-## Простейший сценарий
-
-## Парсинг результатов запроса
-
-## Использование переменных
-
-## Сравнение компонентов Apache.JMeter
-
-## Результаты тестирования
+* Простейший сценарий
+* Парсинг результатов запроса
+* Использование переменных
+* Результаты тестирования
 
