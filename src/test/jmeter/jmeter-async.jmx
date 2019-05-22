@@ -90,7 +90,7 @@ map.put(&quot;IDs&quot;, queue);</stringProp>
         <stringProp name="HTTPSampler.response_timeout"></stringProp>
       </ConfigTestElement>
       <hashTree/>
-      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults: proxy" enabled="false">
+      <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="HTTP Request Defaults: proxy" enabled="true">
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
@@ -138,7 +138,7 @@ map.put(&quot;IDs&quot;, queue);</stringProp>
                 <intProp name="calcMode">0</intProp>
                 <doubleProp>
                   <name>throughput</name>
-                  <value>30.0</value>
+                  <value>20.0</value>
                   <savedValue>0.0</savedValue>
                 </doubleProp>
               </ConstantThroughputTimer>
@@ -149,7 +149,7 @@ map.put(&quot;IDs&quot;, queue);</stringProp>
                 <collectionProp name="Arguments.arguments">
                   <elementProp name="page" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">${__Random(1,1000,)}</stringProp>
+                    <stringProp name="Argument.value">${__Random(1,100,)}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">page</stringProp>
@@ -286,7 +286,7 @@ queue.put(id); </stringProp>
                   </elementProp>
                   <elementProp name="post" elementType="HTTPArgument">
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                    <stringProp name="Argument.value">${id}</stringProp>
+                    <stringProp name="Argument.value">${id_new}</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
                     <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     <stringProp name="Argument.name">post</stringProp>
@@ -321,7 +321,7 @@ ConcurrentHashMap map = SharedHashMap.GetInstance();
 LinkedBlockingQueue queue = map.get(&quot;IDs&quot;);
 
 def id = queue.take();
-vars.put(&quot;id&quot;, id);
+vars.put(&quot;id_new&quot;, id);
 </stringProp>
                 <stringProp name="scriptLanguage">groovy</stringProp>
               </JSR223PreProcessor>
