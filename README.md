@@ -132,7 +132,7 @@ $ head -n 1 *
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.1
+mvn jmeter:gui -Djmx=jmeter-web.1
 ```
 
 # Добавление HTTP Header Manager
@@ -176,7 +176,7 @@ Add | Config Elements | HTTP Header Manager
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.2
+mvn jmeter:gui -Djmx=jmeter-web.2
 ```
 
 # Добавление HTTP Cookie Manager
@@ -214,7 +214,7 @@ Add | Config Elements | HTTP Cookie Manager
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.3
+mvn jmeter:gui -Djmx=jmeter-web.3
 ```
 
 # Добавление HTTP Cache Manager
@@ -249,7 +249,7 @@ Add | Config Elements | HTTP Cache Manager
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.4
+mvn jmeter:gui -Djmx=jmeter-web.4
 ```
 
 # Добавление HTTP Request Defaults
@@ -287,7 +287,7 @@ Proxy Server
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.5
+mvn jmeter:gui -Djmx=jmeter-web.5
 ```
 
 
@@ -358,7 +358,7 @@ mvn jmeter:gui -Pjmx=jmeter-web.5
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.6
+mvn jmeter:gui -Djmx=jmeter-web.6
 ```
 
 # Добавление Listener-ов
@@ -388,7 +388,7 @@ mvn jmeter:gui -Pjmx=jmeter-web.6
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.7
+mvn jmeter:gui -Djmx=jmeter-web.7
 ```
 
 # Перенос запросов в сценарий из har-лога
@@ -438,7 +438,7 @@ mvn jmeter:gui -Pjmx=jmeter-web.7
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.8
+mvn jmeter:gui -Djmx=jmeter-web.8
 ```
 
 ## Отправка запросов из Fiddler в **HTTP(S) Test Script Recorder**
@@ -476,7 +476,7 @@ mvn jmeter:gui -Pjmx=jmeter-web.8
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.9
+mvn jmeter:gui -Djmx=jmeter-web.9
 ```
 
 # Корреляция запросов
@@ -544,7 +544,7 @@ mvn jmeter:gui -Pjmx=jmeter-web.9
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.10
+mvn jmeter:gui -Djmx=jmeter-web.10
 ```
 
 ## Получение других параметров (корреляция)
@@ -591,7 +591,7 @@ cur_mn	48	false	text/plain	true
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.11
+mvn jmeter:gui -Djmx=jmeter-web.11
 ```
 
 ## Заголовок статьи (корреляция)
@@ -629,7 +629,7 @@ Fiddler подсказывает, что URL есть в ответе на 5-й 
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.12
+mvn jmeter:gui -Djmx=jmeter-web.12
 ```
 
 Теперь скрипт полностью связан одним процессом. Но он создаёт пост с фиксированнм содержимым.
@@ -650,7 +650,19 @@ mvn jmeter:gui -Pjmx=jmeter-web.12
 можно выполнить команду:
 
 ```
-mvn jmeter:gui -Pjmx=jmeter-web.13
+mvn jmeter:gui -Djmx=jmeter-web.13
 ```
 
 Теперь скрипт полностью готов.
+
+Можно запускать:
+
+```
+mvn jmeter:jmeter
+```
+
+Чтобы запустить тест через локальный прокси на localhost:8888 (для отладки) можно выполнить команду:
+
+```
+mvn jmeter:jmeter -P proxy
+```
