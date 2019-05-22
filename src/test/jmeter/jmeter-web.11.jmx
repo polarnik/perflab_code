@@ -180,37 +180,7 @@
                 <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://wp.loadlab.ragozin.info/</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <hashTree/>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="2. Форма аутентификации" enabled="true"/>
             <hashTree>
@@ -232,37 +202,7 @@
                 <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://wp.loadlab.ragozin.info/</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <hashTree/>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="3. Аутентификация" enabled="true"/>
             <hashTree>
@@ -274,36 +214,42 @@
                       <stringProp name="Argument.name">log</stringProp>
                       <stringProp name="Argument.value">boss</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="pwd" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">pwd</stringProp>
                       <stringProp name="Argument.value">boss</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="rememberme" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">rememberme</stringProp>
                       <stringProp name="Argument.value">forever</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="wp-submit" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">wp-submit</stringProp>
                       <stringProp name="Argument.value">Log+In</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="redirect_to" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">redirect_to</stringProp>
                       <stringProp name="Argument.value">http%3A%2F%2Fwp.loadlab.ragozin.info%2Fwp-admin%2F</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="testcookie" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">testcookie</stringProp>
                       <stringProp name="Argument.value">1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -321,41 +267,7 @@
                 <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://wp.loadlab.ragozin.info/wp-login.php</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Content-Type" elementType="Header">
-                      <stringProp name="Header.name">Content-Type</stringProp>
-                      <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <hashTree/>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="4. Нажать кнопку New/Post" enabled="true"/>
             <hashTree>
@@ -809,41 +721,7 @@
                 <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://wp.loadlab.ragozin.info/wp-admin/post-new.php?wp-post-new-reload=true</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Content-Type" elementType="Header">
-                      <stringProp name="Header.name">Content-Type</stringProp>
-                      <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <hashTree/>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="6. Посмотреть Post" enabled="true"/>
             <hashTree>
@@ -865,37 +743,7 @@
                 <stringProp name="HTTPSampler.connect_timeout"></stringProp>
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
-              <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
-                  <collectionProp name="HeaderManager.headers">
-                    <elementProp name="Referer" elementType="Header">
-                      <stringProp name="Header.name">Referer</stringProp>
-                      <stringProp name="Header.value">http://wp.loadlab.ragozin.info/wp-admin/post.php?post=8278&amp;action=edit</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Language" elementType="Header">
-                      <stringProp name="Header.name">Accept-Language</stringProp>
-                      <stringProp name="Header.value">ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3</stringProp>
-                    </elementProp>
-                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
-                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
-                      <stringProp name="Header.value">1</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept-Encoding" elementType="Header">
-                      <stringProp name="Header.name">Accept-Encoding</stringProp>
-                      <stringProp name="Header.value">gzip, deflate</stringProp>
-                    </elementProp>
-                    <elementProp name="User-Agent" elementType="Header">
-                      <stringProp name="Header.name">User-Agent</stringProp>
-                      <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
-                    </elementProp>
-                    <elementProp name="Accept" elementType="Header">
-                      <stringProp name="Header.name">Accept</stringProp>
-                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
-                    </elementProp>
-                  </collectionProp>
-                </HeaderManager>
-                <hashTree/>
-              </hashTree>
+              <hashTree/>
             </hashTree>
           </hashTree>
         </hashTree>
