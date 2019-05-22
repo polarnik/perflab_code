@@ -272,44 +272,38 @@
                     <elementProp name="log" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">log</stringProp>
-                      <stringProp name="Argument.value">${login}</stringProp>
+                      <stringProp name="Argument.value">boss</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="pwd" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">pwd</stringProp>
-                      <stringProp name="Argument.value">${password}</stringProp>
+                      <stringProp name="Argument.value">boss</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="rememberme" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">rememberme</stringProp>
                       <stringProp name="Argument.value">forever</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="wp-submit" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">wp-submit</stringProp>
                       <stringProp name="Argument.value">Log+In</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="redirect_to" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">redirect_to</stringProp>
                       <stringProp name="Argument.value">http%3A%2F%2Fwp.loadlab.ragozin.info%2Fwp-admin%2F</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="testcookie" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">testcookie</stringProp>
                       <stringProp name="Argument.value">1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -384,101 +378,11 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
               <hashTree>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: _wpnonce" enabled="true">
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor" enabled="true">
                   <stringProp name="HtmlExtractor.refname">_wpnonce</stringProp>
                   <stringProp name="HtmlExtractor.expr">input#_wpnonce</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default"></stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: user_ID" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">user_ID</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#user-id</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: post_author" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">post_author</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#post_author</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: post_ID" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">post_ID</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#post_ID</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: meta-box-order-nonce" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">meta-box-order-nonce</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#meta-box-order-nonce</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: samplepermalinknonce" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">samplepermalinknonce</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#samplepermalinknonce</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: closedpostboxesnonce" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">closedpostboxesnonce</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#closedpostboxesnonce</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: _ajax_nonce-add-category" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">_ajax_nonce-add-category</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#_ajax_nonce-add-category</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: _ajax_nonce-add-meta" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">_ajax_nonce-add-meta</stringProp>
-                  <stringProp name="HtmlExtractor.expr">input#_ajax_nonce-add-meta</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
-                <hashTree/>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: post_author_override" enabled="true">
-                  <stringProp name="HtmlExtractor.refname">post_author_override</stringProp>
-                  <stringProp name="HtmlExtractor.expr">select#post_author_override &gt; option[selected=selected]</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">NONE</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -508,7 +412,7 @@
                     <elementProp name="user_ID" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">user_ID</stringProp>
-                      <stringProp name="Argument.value">${user_ID}</stringProp>
+                      <stringProp name="Argument.value">1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -529,7 +433,7 @@
                     <elementProp name="post_author" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_author</stringProp>
-                      <stringProp name="Argument.value">${post_author}</stringProp>
+                      <stringProp name="Argument.value">1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -571,42 +475,42 @@
                     <elementProp name="post_ID" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_ID</stringProp>
-                      <stringProp name="Argument.value">${post_ID}</stringProp>
+                      <stringProp name="Argument.value">8278</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="meta-box-order-nonce" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">meta-box-order-nonce</stringProp>
-                      <stringProp name="Argument.value">${meta-box-order-nonce}</stringProp>
+                      <stringProp name="Argument.value">c81d0bbc7b</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="closedpostboxesnonce" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">closedpostboxesnonce</stringProp>
-                      <stringProp name="Argument.value">${closedpostboxesnonce}</stringProp>
+                      <stringProp name="Argument.value">093f744291</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="post_title" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_title</stringProp>
-                      <stringProp name="Argument.value">${Title}</stringProp>
+                      <stringProp name="Argument.value">New+Post+Title</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="samplepermalinknonce" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">samplepermalinknonce</stringProp>
-                      <stringProp name="Argument.value">${samplepermalinknonce}</stringProp>
+                      <stringProp name="Argument.value">6850381503</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="content" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">content</stringProp>
-                      <stringProp name="Argument.value">${Body}</stringProp>
+                      <stringProp name="Argument.value">%3Cstrong%3EJMeter%3C%2Fstrong%3E+-+simple+tool</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
@@ -659,152 +563,237 @@
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
+                    <elementProp name="mm" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">mm</stringProp>
+                      <stringProp name="Argument.value">05</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="jj" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">jj</stringProp>
+                      <stringProp name="Argument.value">20</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="aa" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">aa</stringProp>
+                      <stringProp name="Argument.value">2019</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="hh" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">hh</stringProp>
+                      <stringProp name="Argument.value">15</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="mn" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">mn</stringProp>
+                      <stringProp name="Argument.value">48</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="ss" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">ss</stringProp>
+                      <stringProp name="Argument.value">56</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="hidden_mm" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">hidden_mm</stringProp>
+                      <stringProp name="Argument.value">05</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="cur_mm" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">cur_mm</stringProp>
+                      <stringProp name="Argument.value">05</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="hidden_jj" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">hidden_jj</stringProp>
+                      <stringProp name="Argument.value">20</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="cur_jj" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">cur_jj</stringProp>
+                      <stringProp name="Argument.value">20</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                    </elementProp>
+                    <elementProp name="hidden_aa" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">hidden_aa</stringProp>
+                      <stringProp name="Argument.value">2019</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                    <elementProp name="cur_aa" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">cur_aa</stringProp>
+                      <stringProp name="Argument.value">2019</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                    <elementProp name="hidden_hh" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">hidden_hh</stringProp>
+                      <stringProp name="Argument.value">15</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                    <elementProp name="cur_hh" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">cur_hh</stringProp>
+                      <stringProp name="Argument.value">15</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                    <elementProp name="hidden_mn" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">hidden_mn</stringProp>
+                      <stringProp name="Argument.value">48</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
+                    <elementProp name="cur_mn" elementType="HTTPArgument">
+                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <stringProp name="Argument.name">cur_mn</stringProp>
+                      <stringProp name="Argument.value">48</stringProp>
+                      <stringProp name="Argument.metadata">=</stringProp>
+                    </elementProp>
                     <elementProp name="original_publish" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">original_publish</stringProp>
                       <stringProp name="Argument.value">Publish</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="publish" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">publish</stringProp>
                       <stringProp name="Argument.value">Publish</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="post_format" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_format</stringProp>
                       <stringProp name="Argument.value">0</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="post_category%5B%5D" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_category%5B%5D</stringProp>
                       <stringProp name="Argument.value">0</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="newcategory" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">newcategory</stringProp>
                       <stringProp name="Argument.value">New+Category+Name</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="newcategory_parent" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">newcategory_parent</stringProp>
                       <stringProp name="Argument.value">-1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="_ajax_nonce-add-category" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">_ajax_nonce-add-category</stringProp>
-                      <stringProp name="Argument.value">${_ajax_nonce-add-category}</stringProp>
+                      <stringProp name="Argument.value">ddc93a11c3</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="tax_input%5Bpost_tag%5D" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">tax_input%5Bpost_tag%5D</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="newtag%5Bpost_tag%5D" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">newtag%5Bpost_tag%5D</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="_thumbnail_id" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">_thumbnail_id</stringProp>
                       <stringProp name="Argument.value">-1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="excerpt" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">excerpt</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="trackback_url" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">trackback_url</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="metakeyselect" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">metakeyselect</stringProp>
                       <stringProp name="Argument.value">%23NONE%23</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="metakeyinput" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">metakeyinput</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="metavalue" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">metavalue</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="_ajax_nonce-add-meta" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">_ajax_nonce-add-meta</stringProp>
-                      <stringProp name="Argument.value">${_ajax_nonce-add-meta}</stringProp>
+                      <stringProp name="Argument.value">5cd119cc8c</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="advanced_view" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">advanced_view</stringProp>
                       <stringProp name="Argument.value">1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="comment_status" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">comment_status</stringProp>
                       <stringProp name="Argument.value">open</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="ping_status" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">ping_status</stringProp>
                       <stringProp name="Argument.value">open</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="post_name" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_name</stringProp>
                       <stringProp name="Argument.value"></stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="post_author_override" elementType="HTTPArgument">
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_author_override</stringProp>
-                      <stringProp name="Argument.value">${post_author_override}</stringProp>
+                      <stringProp name="Argument.value">1</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                   </collectionProp>
                 </elementProp>
@@ -823,22 +812,44 @@
                 <stringProp name="HTTPSampler.response_timeout"></stringProp>
               </HTTPSamplerProxy>
               <hashTree>
-                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="CSS Selector Extractor: newPostUrl" enabled="true">
-                  <stringProp name="TestPlan.comments">&lt;div id=&quot;message&quot; class=&quot;updated notice notice-success is-dismissible&quot;&gt;&lt;p&gt;Post published. &lt;a href=&quot;http://wp.loadlab.ragozin.info/2019/05/20/new-post-title/&quot;&gt;View post&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;</stringProp>
-                  <stringProp name="HtmlExtractor.refname">newPostUrl</stringProp>
-                  <stringProp name="HtmlExtractor.expr">div#message.updated.notice.notice-success.is-dismissible a</stringProp>
-                  <stringProp name="HtmlExtractor.attribute">href</stringProp>
-                  <stringProp name="HtmlExtractor.default"></stringProp>
-                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
-                  <stringProp name="HtmlExtractor.match_number"></stringProp>
-                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
-                </HtmlExtractor>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="Referer" elementType="Header">
+                      <stringProp name="Header.name">Referer</stringProp>
+                      <stringProp name="Header.value">http://wp.loadlab.ragozin.info/wp-admin/post-new.php?wp-post-new-reload=true</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Language" elementType="Header">
+                      <stringProp name="Header.name">Accept-Language</stringProp>
+                      <stringProp name="Header.value">ru-RU,ru;q=0.8,en-US;q=0.5,en;q=0.3</stringProp>
+                    </elementProp>
+                    <elementProp name="Upgrade-Insecure-Requests" elementType="Header">
+                      <stringProp name="Header.name">Upgrade-Insecure-Requests</stringProp>
+                      <stringProp name="Header.value">1</stringProp>
+                    </elementProp>
+                    <elementProp name="Content-Type" elementType="Header">
+                      <stringProp name="Header.name">Content-Type</stringProp>
+                      <stringProp name="Header.value">application/x-www-form-urlencoded</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept-Encoding" elementType="Header">
+                      <stringProp name="Header.name">Accept-Encoding</stringProp>
+                      <stringProp name="Header.value">gzip, deflate</stringProp>
+                    </elementProp>
+                    <elementProp name="User-Agent" elementType="Header">
+                      <stringProp name="Header.name">User-Agent</stringProp>
+                      <stringProp name="Header.value">Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:66.0) Gecko/20100101 Firefox/66.0</stringProp>
+                    </elementProp>
+                    <elementProp name="Accept" elementType="Header">
+                      <stringProp name="Header.name">Accept</stringProp>
+                      <stringProp name="Header.value">text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
                 <hashTree/>
               </hashTree>
             </hashTree>
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="6. Посмотреть Post" enabled="true"/>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="6 &lt;newPostUrl&gt;" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="6 /2019/05/20/new-post-title/" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments"/>
                 </elementProp>
@@ -846,7 +857,7 @@
                 <stringProp name="HTTPSampler.port"></stringProp>
                 <stringProp name="HTTPSampler.protocol">http</stringProp>
                 <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-                <stringProp name="HTTPSampler.path">${newPostUrl}</stringProp>
+                <stringProp name="HTTPSampler.path">/2019/05/20/new-post-title/</stringProp>
                 <stringProp name="HTTPSampler.method">GET</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <boolProp name="HTTPSampler.auto_redirects">false</boolProp>

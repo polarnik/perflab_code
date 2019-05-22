@@ -479,9 +479,178 @@ mvn jmeter:gui -Pjmx=jmeter-web.8
 mvn jmeter:gui -Pjmx=jmeter-web.9
 ```
 
-# Кореляция запросов
+# Корреляция запросов
 
 Если сейчас выполнить сценарий, то мы получим ошибку:
 
-Открыть понтектное меню на **Thread Group** и выбрать пункт **Validate** -- выполнится одна итерация скрипта.
 
+
+Открыть понтектное меню на **Thread Group** и выбрать пункт **Validate** -- выполнится одна итерация сценария.
+
+5-й запрос завершился ошибкой:
+
+* POST http://wp.loadlab.ragozin.info/wp-admin/post.php
+* HTTP/1.1 403 Forbidden
+
+```
+    <body id="error-page">
+    	<p>The link you followed has expired.</p>
+    	<p><a href="/wp-admin/post-new.php">Please try again.</a></p>
+    </body>
+
+```
+
+![](images/jmeter-web.9.png)
+
+Всё потому, что в параметрах запроса 5 большое количество магических контант:
+
+* _wpnonce: 780c104f36
+* meta-box-order-nonce: c81d0bbc7b
+* ...
+
+которые нужно скоррелировать. Сделать так, чтобы их значения брались из ответов на предыдущие запросы.
+Для точной эмуляции работы клиента.
+
+![](images/jmeter-web.9.2.png)
+
+Для поиска источника значений удобно использовать Fiddler, где есть полнотекстовый поиск по всему трафику:
+
+Так значение `780c104f36` которое нужно скоррелизовать в 5-м запросе пришло нам в ответе на 4-й запрос.
+
+![](images/Fiddler.4.png)
+
+Ответ на 4-й запрос (59-я строка в Fiddler) можно посмотреть в Fiddler или например открыть в тектостовом редакторе или в браузере:
+
+* <a href="HTTP.Archive/Resp.Body/59.wp-admin.post-new.php.htm" target="59" >HTTP.Archive/Resp.Body/59.wp-admin.post-new.php.htm</a>
+
+![](images/correlation.png)
+
+## Получение _wpnonce (корреляция)
+
+Находим наше значение
+
+```
+
+    <input type="hidden" id="_wpnonce" name="_wpnonce" value="780c104f36" />
+```
+
+Значит, если добавить к **4 /wp-admin/post-new.php** PostProcessor  **CSS Selector Extractor** с выражением `input#_wpnonce`, то в аттрибуте `value` будет искомое значение `780c104f36`.
+
+И теперь можно в 5-м запросе использовать вместо константы переменную `${_wpnonce}`
+
+![](images/jmeter-web.10.png)
+
+Чтобы сразу просмотреть скрипт с корреляцией **_wpnonce**
+можно выполнить команду:
+
+```
+mvn jmeter:gui -Pjmx=jmeter-web.10
+```
+
+## Получение других параметров (корреляция)
+
+
+| Параметр | Исходное значение | CSS-селектор для 4-го запроса | Аттрибут |
+|---|---|---|
+| _wpnonce | 780c104f36 | `input#_wpnonce` | value |
+| user_ID | 1 | `input#user-id` | value |
+| post_author | 1 | `input#post_author` | value |
+| post_ID | 8278 | `input#post_ID` | value |
+| meta-box-order-nonce | c81d0bbc7b | `input#meta-box-order-nonce` | value |
+| samplepermalinknonce | 6850381503 | `input#samplepermalinknonce` | value |
+| _ajax_nonce-add-category | ddc93a11c3 | `input#_ajax_nonce-add-category` |
+| closedpostboxesnonce | 093f744291 | input#closedpostboxesnonce | value |
+| _ajax_nonce-add-meta |  | `input#_ajax_nonce-add-meta` | value |
+| post_author_override | 1 | `select#post_author_override > option[selected=selected]` | value |
+
+
+Как видно, все селекторы очень простые.
+
+
+Параметры для удаления (дата публикации):
+```
+mm	05	false	text/plain	true
+jj	20	false	text/plain	true
+aa	2019	false	text/plain	true
+hh	15	false	text/plain	true
+mn	48	false	text/plain	true
+ss	56	false	text/plain	true
+hidden_mm	05	false	text/plain	true
+cur_mm	05	false	text/plain	true
+hidden_jj	20	false	text/plain	true
+cur_jj	20	false	text/plain	true
+hidden_aa	2019	false	text/plain	true
+cur_aa	2019	false	text/plain	true
+hidden_hh	15	false	text/plain	true
+cur_hh	15	false	text/plain	true
+hidden_mn	48	false	text/plain	true
+cur_mn	48	false	text/plain	true
+```
+
+Чтобы сразу просмотреть скрипт с корреляцией всех параметров запроса 4
+можно выполнить команду:
+
+```
+mvn jmeter:gui -Pjmx=jmeter-web.11
+```
+
+## Заголовок статьи (корреляция)
+
+Сейчас открытие записи блога выглядит так:
+
+* 6 /2019/05/20/new-post-title/
+
+обращение по фиксированному пути.
+
+Чтобы скоррелировать работу 6-го запроса, нужно понять где можно найти сгенерированный URL новой записи.
+
+Fiddler подсказывает, что URL есть в ответе на 5-й запрос (Сохранить запись в блоге)
+
+* <a href="HTTP.Archive/Resp.Body/127.wp-admin.post.php.htm" target="127" >HTTP.Archive/Resp.Body/127.wp-admin.post.php.htm</a>
+
+Это текст:
+
+```
+    
+    <div id="message" class="updated notice notice-success is-dismissible">
+    <p>Post published. 
+        <a href="http://wp.loadlab.ragozin.info/2019/05/20/new-post-title/">View post</a>
+    </p>
+    </div>
+```
+
+нам подойдет селектор:
+
+* Name: `newPostUrl`
+* Selector: `div#message.updated.notice.notice-success.is-dismissible a`
+* Attribute: `href`
+
+Чтобы сразу просмотреть скрипт с корреляцией **newPostUrl**
+можно выполнить команду:
+
+```
+mvn jmeter:gui -Pjmx=jmeter-web.12
+```
+
+Теперь скрипт полностью связан одним процессом. Но он создаёт пост с фиксированнм содержимым.
+
+## Параметризация запросов (логин и пароль, заголовок и текст записи)
+
+Чтобы параметрировать текст, заголовок, логин и пароль пользователя можно
+воспользоваться переменными:
+
+* 3 /wp-login.php:
+    * log = ${login}
+    * pwd = ${password}
+* 5 /wp-admin/post.php
+    * post_title = ${Title}
+    * content = ${Body}
+    
+Чтобы сразу просмотреть скрипт с параметризацией
+можно выполнить команду:
+
+```
+mvn jmeter:gui -Pjmx=jmeter-web.13
+```
+
+Теперь скрипт полностью готов.
