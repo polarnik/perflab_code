@@ -48,7 +48,7 @@
         <stringProp name="TestPlan.comments">&quot;login&quot;,&quot;first_name&quot;,&quot;last_name&quot;,&quot;email&quot;,&quot;password&quot;</stringProp>
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding">UTF-8</stringProp>
-        <stringProp name="filename">${data.dir}/user_1k.csv</stringProp>
+        <stringProp name="filename">${data.dir}/user_100.csv</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
         <boolProp name="quotedData">true</boolProp>
         <boolProp name="recycle">true</boolProp>
@@ -499,7 +499,7 @@
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                     <elementProp name="post_title" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">post_title</stringProp>
                       <stringProp name="Argument.value">New+Post+Title</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
@@ -511,7 +511,7 @@
                       <stringProp name="Argument.metadata">=</stringProp>
                     </elementProp>
                     <elementProp name="content" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">content</stringProp>
                       <stringProp name="Argument.value">%3Cstrong%3EJMeter%3C%2Fstrong%3E+-+simple+tool</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
