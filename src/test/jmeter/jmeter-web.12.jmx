@@ -48,7 +48,7 @@
         <stringProp name="TestPlan.comments">&quot;login&quot;,&quot;first_name&quot;,&quot;last_name&quot;,&quot;email&quot;,&quot;password&quot;</stringProp>
         <stringProp name="delimiter">,</stringProp>
         <stringProp name="fileEncoding">UTF-8</stringProp>
-        <stringProp name="filename">${data.dir}/user_100.csv</stringProp>
+        <stringProp name="filename">${data.dir}/users_100.csv</stringProp>
         <boolProp name="ignoreFirstLine">false</boolProp>
         <boolProp name="quotedData">true</boolProp>
         <boolProp name="recycle">true</boolProp>

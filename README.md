@@ -106,7 +106,7 @@ $ head -n 1 *
 |---|---|---|
 | CSV Data Set Config: comments  | "ID","Date","Text" | ${data.dir}/comments_20k_seed1.csv |
 | CSV Data Set Config: posts  | "ID","Date","Title","Tags","Body" | ${data.dir}/posts_5k_seed1.csv |
-| CSV Data Set Config: user  | "login","first_name","last_name","email","password" | ${data.dir}/user_100.csv |
+| CSV Data Set Config: user  | "login","first_name","last_name","email","password" | ${data.dir}/users_100.csv |
 
 
 и настройками:
