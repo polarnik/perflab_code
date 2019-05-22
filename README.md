@@ -558,8 +558,8 @@ mvn jmeter:gui -Djmx=jmeter-web.10
 | post_ID | 8278 | `input#post_ID` | value |
 | meta-box-order-nonce | c81d0bbc7b | `input#meta-box-order-nonce` | value |
 | samplepermalinknonce | 6850381503 | `input#samplepermalinknonce` | value |
-| _ajax_nonce-add-category | ddc93a11c3 | `input#_ajax_nonce-add-category` |
-| closedpostboxesnonce | 093f744291 | input#closedpostboxesnonce | value |
+| _ajax_nonce-add-category | ddc93a11c3 | `input#_ajax_nonce-add-category` | value |
+| closedpostboxesnonce | 093f744291 | `input#closedpostboxesnonce` | value |
 | _ajax_nonce-add-meta |  | `input#_ajax_nonce-add-meta` | value |
 | post_author_override | 1 | `select#post_author_override > option[selected=selected]` | value (не надо использовать!!!) |
 
