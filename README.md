@@ -551,7 +551,7 @@ mvn jmeter:gui -Djmx=jmeter-web.10
 
 
 | Параметр | Исходное значение | CSS-селектор для 4-го запроса | Аттрибут |
-|---|---|---|
+|---|---|---|---|
 | _wpnonce | 780c104f36 | `input#_wpnonce` | value |
 | user_ID | 1 | `input#user-id` | value |
 | post_author | 1 | `input#post_author` | value |
@@ -561,7 +561,7 @@ mvn jmeter:gui -Djmx=jmeter-web.10
 | _ajax_nonce-add-category | ddc93a11c3 | `input#_ajax_nonce-add-category` |
 | closedpostboxesnonce | 093f744291 | input#closedpostboxesnonce | value |
 | _ajax_nonce-add-meta |  | `input#_ajax_nonce-add-meta` | value |
-| post_author_override | 1 | `select#post_author_override > option[selected=selected]` | value |
+| post_author_override | 1 | `select#post_author_override > option[selected=selected]` | value (не надо использовать!!!) |
 
 
 Как видно, все селекторы очень простые.
