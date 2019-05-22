@@ -1,0 +1,614 @@
+792e
+<!DOCTYPE html>
+<html lang="en-US" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+		<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>
+<title>Performance testing lab &#8211; Just another WordPress site</title>
+<link rel='dns-prefetch' href='//wp.loadlab.ragozin.info' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Performance testing lab &raquo; Feed" href="http://wp.loadlab.ragozin.info/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Performance testing lab &raquo; Comments Feed" href="http://wp.loadlab.ragozin.info/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/wp.loadlab.ragozin.info\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.1.1"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56760,9792,65039],[55358,56760,8203,9792,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='http://wp.loadlab.ragozin.info/wp-includes/css/dist/block-library/style.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-theme-css'  href='http://wp.loadlab.ragozin.info/wp-includes/css/dist/block-library/theme.min.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-fonts-css'  href='https://fonts.googleapis.com/css?family=Merriweather%3A400%2C700%2C900%2C400italic%2C700italic%2C900italic%7CMontserrat%3A400%2C700%7CInconsolata%3A400&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='genericons-css'  href='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/genericons/genericons.css?ver=3.4.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-style-css'  href='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/style.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='twentysixteen-block-style-css'  href='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/css/blocks.css?ver=20181230' type='text/css' media='all' />
+<!--[if lt IE 10]>
+<link rel='stylesheet' id='twentysixteen-ie-css'  href='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/css/ie.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='twentysixteen-ie8-css'  href='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/css/ie8.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='twentysixteen-ie7-css'  href='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/css/ie7.css?ver=20160816' type='text/css' media='all' />
+<![endif]-->
+<!--[if lt IE 9]>
+<script type='text/javascript' src='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/js/html5.js?ver=3.7.3'></script>
+<![endif]-->
+<script type='text/javascript' src='http://wp.loadlab.ragozin.info/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+<script type='text/javascript' src='http://wp.loadlab.ragozin.info/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='https://api.w.org/' href='http://wp.loadlab.ragozin.info/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://wp.loadlab.ragozin.info/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://wp.loadlab.ragozin.info/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.1.1" />
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		</head>
+
+<body class="home blog wp-embed-responsive group-blog hfeed">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+
+		<header id="masthead" class="site-header" role="banner">
+			<div class="site-header-main">
+				<div class="site-branding">
+					
+											<h1 class="site-title"><a href="http://wp.loadlab.ragozin.info/" rel="home">Performance testing lab</a></h1>
+											<p class="site-description">Just another WordPress site</p>
+									</div><!-- .site-branding -->
+
+							</div><!-- .site-header-main -->
+
+					</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+
+		
+			
+			
+<article id="post-8276" class="post-8276 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%81%d1%80%d0%b0%d0%b1%d0%b0%d1%82%d1%8b%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d1%82%d0%b0%d0%b9%d0%bc%d0%b5%d1%80%d0%b0-javascript-3/" rel="bookmark">Срабатывание таймера javascript</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Добрый вечер, у меня два вопроса.<br />
+Вот код:</p>
+<pre><code>if(timeoutID1)clearTimeout(timeoutID1);
+timeoutID1 = setTimeout(searchExecutor(), 3000); 
+</code></pre>
+<p>первый вопрос: почему первая строка вызывает ошибку?<br />
+второй вопрос: если первую строку закомментировать, почему таймер срабатывает сразу же и вызывает функцию <code>searchExecutor()</code> , почему? как этого избежать, она должна срабатывать через 3 секунды.<br />
+Спасибо.</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://1.gravatar.com/avatar/d295335f6c5bbd0de381d879fcdbd4f5?s=49&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/d295335f6c5bbd0de381d879fcdbd4f5?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/aakharova46/">Ангелина Захарова</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%81%d1%80%d0%b0%d0%b1%d0%b0%d1%82%d1%8b%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d1%82%d0%b0%d0%b9%d0%bc%d0%b5%d1%80%d0%b0-javascript-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:42+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%81%d1%80%d0%b0%d0%b1%d0%b0%d1%82%d1%8b%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d1%82%d0%b0%d0%b9%d0%bc%d0%b5%d1%80%d0%b0-javascript-3/#respond">Leave a comment<span class="screen-reader-text"> on Срабатывание таймера javascript</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8275" class="post-8275 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%be%d0%b4%d0%bd%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%bd%d0%be-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d1%82%d1%8c-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%be%d0%b4-int-byte-in-3/" rel="bookmark">Как однозначно выполнять перевод int -&gt; byte-&gt; int в Java?</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<pre><code>int a = 412;    
+byte c = (byte) a; //-100
+int b = c &amp; 0xFF; //156
+</code></pre>
+<p>Возможно ли в данном случае получить исходное 412?</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://0.gravatar.com/avatar/6f74de4f3b550abce9af6ca5fbf90f98?s=49&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/6f74de4f3b550abce9af6ca5fbf90f98?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/kulikov-nikolay/">Куликов Николай</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%be%d0%b4%d0%bd%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%bd%d0%be-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d1%82%d1%8c-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%be%d0%b4-int-byte-in-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%be%d0%b4%d0%bd%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%bd%d0%be-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d1%82%d1%8c-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%be%d0%b4-int-byte-in-3/#respond">Leave a comment<span class="screen-reader-text"> on Как однозначно выполнять перевод int -&gt; byte-&gt; int в Java?</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8274" class="post-8274 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0-%d0%ba%d0%be%d1%80%d1%80%d0%b5%d0%ba%d1%82%d0%bd%d0%be%d1%81%d1%82%d0%b8-%d0%bf%d0%be%d1%81%d0%bb%d0%b5%d0%b4%d0%be%d0%b2%d0%b0%d1%82%d0%b5%d0%bb-3/" rel="bookmark">Проверка корректности последовательности в массивах php</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Есть два массива 1 &#8211; одномерный массив правильность последовательности элементов в котором нужно проверить и 2 &#8211; одномерный массив трафарет в котором указана корректная последовательность элементов. Было бы легко решить этот вопрос, если бы количество элементов равнялось друг другу, но в массиве 1 могут быть не все значения из массива 2, а только часть.</p>
+<p>Для примера  можно взять массивы:</p>
+<pre><code>$ar = array(
+   [0] =&gt; FIRST
+   [1] =&gt; SECOND
+   [2] =&gt; FIFTH
+   [3] =&gt; SEVENTH
+   [4] =&gt; EIGHTH
+)
+
+$pattern = array(
+  [0] =&gt; FIRST
+  [1] =&gt; SECOND
+  [2] =&gt; THIRD
+  [3] =&gt; FOURTH
+  [4] =&gt; FIFTH
+  [5] =&gt; SIXTH
+  [6] =&gt; SEVENTH
+  [7] =&gt; EIGHTH
+  [8] =&gt; NINTH
+  [9] =&gt; TENTH
+)
+
+$arFail = array(
+   [0] =&gt; EIGHTH
+   [1] =&gt; SEVENTH
+   [2] =&gt; FOURTH
+   [3] =&gt; SECOND
+   [4] =&gt; FIRST
+)
+</code></pre>
+<p>Как можно проверить, что последовательность значений в ar соответствует <code>$pattern</code>, а порядок значений <code>$arFail</code> не соответствует <code>$pattern</code>?</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://0.gravatar.com/avatar/0524b7148739c19784c7a32f20c3aa65?s=49&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/0524b7148739c19784c7a32f20c3aa65?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/moiseyeva-lidiya/">Моисеева Лидия</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0-%d0%ba%d0%be%d1%80%d1%80%d0%b5%d0%ba%d1%82%d0%bd%d0%be%d1%81%d1%82%d0%b8-%d0%bf%d0%be%d1%81%d0%bb%d0%b5%d0%b4%d0%be%d0%b2%d0%b0%d1%82%d0%b5%d0%bb-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0-%d0%ba%d0%be%d1%80%d1%80%d0%b5%d0%ba%d1%82%d0%bd%d0%be%d1%81%d1%82%d0%b8-%d0%bf%d0%be%d1%81%d0%bb%d0%b5%d0%b4%d0%be%d0%b2%d0%b0%d1%82%d0%b5%d0%bb-3/#respond">Leave a comment<span class="screen-reader-text"> on Проверка корректности последовательности в массивах php</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8273" class="post-8273 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/qdatetime-%d0%bd%d0%b5-%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%82-%d1%88%d0%b0%d0%b1%d0%bb%d0%be%d0%bd-3/" rel="bookmark">QDateTime не определяет шаблон</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Имеется два шаблона:</p>
+<pre><code>const QString yearFormat = "MMM dd yyyy";
+const QString timeFormat = "MMM dd hh:mm";
+</code></pre>
+<p>и код, их использующий:</p>
+<pre><code>QString data = getText();
+auto date = data.indexOf(":") != -1 ? QDateTime::fromString(data, timeFormat) :
+                    QDateTime::fromString(data, yearFormat);
+</code></pre>
+<p><code>getText()</code> возвращает строки вида &#8220;Jan 29 2013&#8221; или &#8220;Dec 24 11:35&#8221;, но QDateTime их не хочет парсить, <code>date.toString()</code> возвращает пустую строку</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://0.gravatar.com/avatar/0a705b99605a5ed0f3cb6cdacc177b43?s=49&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/0a705b99605a5ed0f3cb6cdacc177b43?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/olga_laareva/">Ольга Лазарева</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/qdatetime-%d0%bd%d0%b5-%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%82-%d1%88%d0%b0%d0%b1%d0%bb%d0%be%d0%bd-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/qdatetime-%d0%bd%d0%b5-%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%82-%d1%88%d0%b0%d0%b1%d0%bb%d0%be%d0%bd-3/#respond">Leave a comment<span class="screen-reader-text"> on QDateTime не определяет шаблон</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8272" class="post-8272 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9-%d1%88%d1%80%d0%b8%d1%84%d1%82-%d0%bf%d1%80%d0%b8-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b8-%d0%ba%d0%b0%d1%80%d1%82-3/" rel="bookmark">Определенный шрифт при создании картинки</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Всм првт гспд!</p>
+<pre><code>// Создание изображения
+$im = imagecreatetruecolor(400, 30);
+
+// Создание цветов
+$white = imagecolorallocate($im, 255, 255, 255);
+imagefilledrectangle($im, 0, 0, 399, 29, $white);
+
+// Текст надписи
+$text = 'Тест...';
+// Замена пути к шрифту на пользовательский
+$font = 'tahoma.ttf';
+
+// Текст
+imagettftext($im, 20, 0, 10, 20, $black, $font, $text);
+
+imagepng($im,'image_name.png');
+</code></pre>
+<p>Собственно создание изображения с надписью.. все вроде хорошо. А можно как то сделать, что бы скрипт не использовал файл tahoma.ttf ? Ну можно просто не указывать шрифт, но тогда он будет не Tahoma, а какой то стандартный-моношрифт.. Вот охота указать название шрифта, и что бы этот шрифт использовался (как по аналогии с css)</p>
+<p>Если есть эксперты по этому вопросу &#8211; отзовитесь!</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://0.gravatar.com/avatar/963d356a4fa879223f64e734f94b202c?s=49&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/963d356a4fa879223f64e734f94b202c?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/kovaleva_kseniya/">Ковалева Ксения</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9-%d1%88%d1%80%d0%b8%d1%84%d1%82-%d0%bf%d1%80%d0%b8-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b8-%d0%ba%d0%b0%d1%80%d1%82-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9-%d1%88%d1%80%d0%b8%d1%84%d1%82-%d0%bf%d1%80%d0%b8-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b8-%d0%ba%d0%b0%d1%80%d1%82-3/#respond">Leave a comment<span class="screen-reader-text"> on Определенный шрифт при создании картинки</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8271" class="post-8271 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b5-%d1%80%d0%b5%d0%b7%d1%83%d0%bb%d1%8c%d1%82%d0%b0%d1%82%d1%8b-%d0%be%d0%b4%d0%b8%d0%bd%d0%b0%d0%ba%d0%be%d0%b2%d1%8b%d1%85-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8-4/" rel="bookmark">Разные результаты одинаковых функций</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Почему следующая программа выводит <code>1 0</code>, хотя вроде бы одинаковые проверки?</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;type_traits&gt;
+
+
+int main() {
+    std::cout &lt;&lt; std::is_copy_assignable&lt;int&gt;() &lt;&lt; std::endl &lt;&lt; std::is_assignable&lt;int, int&gt;();
+}
+</code></pre>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://1.gravatar.com/avatar/a20bcdefb239234c70ed9e56ebca9389?s=49&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/a20bcdefb239234c70ed9e56ebca9389?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/aleksey-hukov/">Алексей Жуков</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b5-%d1%80%d0%b5%d0%b7%d1%83%d0%bb%d1%8c%d1%82%d0%b0%d1%82%d1%8b-%d0%be%d0%b4%d0%b8%d0%bd%d0%b0%d0%ba%d0%be%d0%b2%d1%8b%d1%85-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8-4/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%80%d0%b0%d0%b7%d0%bd%d1%8b%d0%b5-%d1%80%d0%b5%d0%b7%d1%83%d0%bb%d1%8c%d1%82%d0%b0%d1%82%d1%8b-%d0%be%d0%b4%d0%b8%d0%bd%d0%b0%d0%ba%d0%be%d0%b2%d1%8b%d1%85-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8-4/#respond">Leave a comment<span class="screen-reader-text"> on Разные результаты одинаковых функций</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8270" class="post-8270 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%b2%d1%8b%d0%b2%d0%b5%d1%81%d1%82%d0%b8-%d1%84%d0%be%d1%80%d0%bc%d1%83-%d0%be%d0%b1%d1%80%d0%b0%d1%82%d0%bd%d0%be%d0%b9-%d1%81%d0%b2%d1%8f%d0%b7%d0%b8-%d0%b2-%d0%be%d0%bf%d0%b5-3/" rel="bookmark">как вывести форму обратной связи в опенкарт?</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>я так понимаю она должна уже там быть? как вывести на станицу и настроить необходимые поля</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://1.gravatar.com/avatar/4d18e5e65721fc8062c3425748274f33?s=49&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/4d18e5e65721fc8062c3425748274f33?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/anna31/">Зыкова Анна</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%b2%d1%8b%d0%b2%d0%b5%d1%81%d1%82%d0%b8-%d1%84%d0%be%d1%80%d0%bc%d1%83-%d0%be%d0%b1%d1%80%d0%b0%d1%82%d0%bd%d0%be%d0%b9-%d1%81%d0%b2%d1%8f%d0%b7%d0%b8-%d0%b2-%d0%be%d0%bf%d0%b5-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%b2%d1%8b%d0%b2%d0%b5%d1%81%d1%82%d0%b8-%d1%84%d0%be%d1%80%d0%bc%d1%83-%d0%be%d0%b1%d1%80%d0%b0%d1%82%d0%bd%d0%be%d0%b9-%d1%81%d0%b2%d1%8f%d0%b7%d0%b8-%d0%b2-%d0%be%d0%bf%d0%b5-3/#respond">Leave a comment<span class="screen-reader-text"> on как вывести форму обратной связи в опенкарт?</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8269" class="post-8269 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/spring-security-bad-credentials-%d0%bd%d0%b5-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d0%b5%d1%82-%d1%84%d0%be%d1%80%d0%bc%d0%b0-%d0%b2%d1%85%d0%be%d0%b4%d0%b0-4/" rel="bookmark">Spring security: bad credentials &#8211; не работает форма входа</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Здравствуйте, при создании собственной формы входа возникла проблема: при попытке залогиниться появляется ошибка с сообщением bad credentials (хотя если логиниться через форму  &#8211; все проходит)</p>
+<p>web.xml
+    </p>
+<pre><code>&lt;filter&gt;
+    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+    &lt;filter-class&gt;org.springframework.web.filter.DelegatingFilterProxy&lt;/filter-class&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+    &lt;filter-name&gt;springSecurityFilterChain&lt;/filter-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;    
+
+&lt;security:http pattern="/admin/**" use-expressions="true" name="securityFilterChain" create-session="stateless"&gt;
+          &lt;security:http-basic/&gt;
+          &lt;security:intercept-url pattern="/**" access="hasRole('ADMIN')" /&gt;
+
+   &lt;/security:http&gt;
+
+   &lt;security:http use-expressions="true"&gt;
+          &lt;security:intercept-url pattern="/login" access="permitAll()"/&gt;
+          &lt;security:intercept-url pattern="/**" access="isAuthenticated()"/&gt;
+          &lt;security:form-login login-page="/login"
+                  default-target-url="/restaurants"
+                  authentication-failure-url="/login?error=true"
+                  login-processing-url="/spring_security_check"/&gt;
+          &lt;security:logout logout-success-url="/login"/&gt;
+   &lt;/security:http&gt;
+
+   &lt;security:authentication-manager&gt;
+          &lt;security:authentication-provider&gt;
+                 &lt;security:user-service&gt;
+                        &lt;security:user name="anatoly@mail.ru" password="pastol" authorities="ADMIN"/&gt;
+                 &lt;/security:user-service&gt;
+                 &lt;!--&lt;security:jdbc-user-service data-source-ref="dataSource"
+                                             users-by-username-query="SELECT email, password FROM users WHERE email = ?"
+                                             authorities-by-username-query="SELECT u.email, r.role FROM users u, roles r WHERE u.id=r.userid AND u.email = ?"/&gt;--&gt;
+                 &lt;/security:authentication-provider&gt;
+   &lt;/security:authentication-manager&gt;
+</code></pre>
+<p><hr>
+Форма входа</p>
+<pre><code>  &lt;form:form class="navbar-form navbar-right" role="form" action="spring_security_check" method="post"&gt;
+    &lt;div class="form-group"&gt;
+      &lt;input type="text" placeholder="Email" class="form-control" name='username'&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+      &lt;input type="password" placeholder="Password" class="form-control" name='password'&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="btn btn-success"&gt;Войти&lt;/button&gt;
+  &lt;/form:form&gt;
+</code></pre>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://0.gravatar.com/avatar/3bea48e32423087d7244142c436aee6f?s=49&#038;d=mm&#038;r=g' srcset='http://0.gravatar.com/avatar/3bea48e32423087d7244142c436aee6f?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/yeliaveta-semnovna/">Елизавета Семёновна</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/spring-security-bad-credentials-%d0%bd%d0%b5-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d0%b5%d1%82-%d1%84%d0%be%d1%80%d0%bc%d0%b0-%d0%b2%d1%85%d0%be%d0%b4%d0%b0-4/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/spring-security-bad-credentials-%d0%bd%d0%b5-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d0%b5%d1%82-%d1%84%d0%be%d1%80%d0%bc%d0%b0-%d0%b2%d1%85%d0%be%d0%b4%d0%b0-4/#respond">Leave a comment<span class="screen-reader-text"> on Spring security: bad credentials &#8211; не работает форма входа</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8268" class="post-8268 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-%d1%80%d0%b0%d
+792f
+0%b1%d0%be%d1%82%d0%b0%d1%8e%d1%89%d0%b0%d1%8f-%d1%81-%d0%ba%d0%b0%d0%b6%d0%b4%d1%8b%d0%bc-%d1%8d%d0%bb%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d0%be-3/" rel="bookmark">Функция, работающая с каждым элементом одного массива и записывающая в другой</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Дана функция <code>sin(2*3.14*a/50)/cos(2*3.14*a/50)</code>. Нужно определить функцию, которая берет каждый элемент, скажем, списка <code>a</code> и записывает в соотв. элементы списка <code>y</code>. Затем заполнить <code>a</code> и с помощью функции переписать в <code>y</code>.<br />
+Код на C:</p>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+void tangens (int *a, float *y)
+{
+    *y = sin(2*3.14*(*a)/50)/cos(2*3.14*(*a)/50);
+}
+
+main()
+{
+int i;
+int a[50];
+float b[50];
+for(i=0; i &lt; 50; i++)
+{
+    tangens(&amp;(a[i]), &amp;(b[i]));
+    printf("%f, ", b[i]);
+}
+}
+</code></pre>
+<p>Вроде так, а вот аналогично на python&#8230; Как ни пытаюсь, разобраться не выходит. Именно определение функции со списками в кач-ве аргумента. Ковырялся внутри, объявлял пустую + внутри добавлял функ. <code>append()</code> &#8211; все ни по чем. как бы вы эту самую функцию определили?  </p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://1.gravatar.com/avatar/da248f4adb23932440af6bc969e26623?s=49&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/da248f4adb23932440af6bc969e26623?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/taisiya-kulagina/">Таисия Кулагина</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d1%8e%d1%89%d0%b0%d1%8f-%d1%81-%d0%ba%d0%b0%d0%b6%d0%b4%d1%8b%d0%bc-%d1%8d%d0%bb%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d0%be-3/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%b0%d1%8e%d1%89%d0%b0%d1%8f-%d1%81-%d0%ba%d0%b0%d0%b6%d0%b4%d1%8b%d0%bc-%d1%8d%d0%bb%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d0%be-3/#respond">Leave a comment<span class="screen-reader-text"> on Функция, работающая с каждым элементом одного массива и записывающая в другой</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+<article id="post-8267" class="post-8267 post type-post status-publish format-standard hentry category-uncategorized">
+	<header class="entry-header">
+		
+		<h2 class="entry-title"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%bd%d0%b0%d0%b9%d1%82%d0%b8-%d0%b1%d0%bb%d0%b8%d0%b6%d0%b0%d0%b9%d1%88%d0%b8%d0%b5-%d0%bf%d0%be%d0%bb%d0%b8%d0%ba%d0%bb%d0%b8%d0%bd%d0%b8%d0%ba%d0%b8-%d0%b4%d0%b5%d1%82%d1%81-4/" rel="bookmark">Как найти ближайшие поликлиники, детские сады, парки и т.п. в yandex карты api?</a></h2>	</header><!-- .entry-header -->
+
+	
+	
+	<div class="entry-content">
+		<p>Есть ли возможность в API искать по атрибутам мест(организаций)? (<a href="https://yandex.ru/support/nmaps/cat_organizations_rul2.html" rel="nofollow noreferrer">https://yandex.ru/support/nmaps/cat_organizations_rul2.html</a>)</p>
+	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><span class="author vcard"><img alt='' src='http://2.gravatar.com/avatar/ec91331f0e39104c747b9aabfd767343?s=49&#038;d=mm&#038;r=g' srcset='http://2.gravatar.com/avatar/ec91331f0e39104c747b9aabfd767343?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' /><span class="screen-reader-text">Author </span> <a class="url fn n" href="http://wp.loadlab.ragozin.info/author/pvasilisa59/">Потапова Василиса</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%bd%d0%b0%d0%b9%d1%82%d0%b8-%d0%b1%d0%bb%d0%b8%d0%b6%d0%b0%d0%b9%d1%88%d0%b8%d0%b5-%d0%bf%d0%be%d0%bb%d0%b8%d0%ba%d0%bb%d0%b8%d0%bd%d0%b8%d0%ba%d0%b8-%d0%b4%d0%b5%d1%82%d1%81-4/" rel="bookmark"><time class="entry-date published updated" datetime="2019-05-20T14:09:41+00:00">May 20, 2019</time></a></span><span class="comments-link"><a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%bd%d0%b0%d0%b9%d1%82%d0%b8-%d0%b1%d0%bb%d0%b8%d0%b6%d0%b0%d0%b9%d1%88%d0%b8%d0%b5-%d0%bf%d0%be%d0%bb%d0%b8%d0%ba%d0%bb%d0%b8%d0%bd%d0%b8%d0%ba%d0%b8-%d0%b4%d0%b5%d1%82%d1%81-4/#respond">Leave a comment<span class="screen-reader-text"> on Как найти ближайшие поликлиники, детские сады, парки и т.п. в yandex карты api?</span></a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+
+	<nav class="navigation pagination" role="navigation">
+		<h2 class="screen-reader-text">Posts navigation</h2>
+		<div class="nav-links"><span aria-current='page' class='page-numbers current'><span class="meta-nav screen-reader-text">Page </span>1</span>
+<a class='page-numbers' href='http://wp.loadlab.ragozin.info/page/2/'><span class="meta-nav screen-reader-text">Page </span>2</a>
+<span class="page-numbers dots">&hellip;</span>
+<a class='page-numbers' href='http://wp.loadlab.ragozin.info/page/400/'><span class="meta-nav screen-reader-text">Page </span>400</a>
+<a class="next page-numbers" href="http://wp.loadlab.ragozin.info/page/2/">Next page</a></div>
+	</nav>
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+
+
+	<aside id="secondary" class="sidebar widget-area" role="complementary">
+		<section id="search-2" class="widget widget_search">
+<form role="search" method="get" class="search-form" action="http://wp.loadlab.ragozin.info/">
+	<label>
+		<span class="screen-reader-text">Search for:</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">Search</span></button>
+</form>
+</section><section id="tag_cloud-2" class="widget widget_tag_cloud"><h2 class="widget-title">Tags</h2><div class="tagcloud"><ul class='wp-tag-cloud' role='list'>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/net/" class="tag-cloud-link tag-link-204 tag-link-position-1" style="font-size: 1em;" aria-label=".net (42 items)">.net<span class="tag-link-count"> (42)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/ajax/" class="tag-cloud-link tag-link-112 tag-link-position-2" style="font-size: 1em;" aria-label="ajax (68 items)">ajax<span class="tag-link-count"> (68)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/android/" class="tag-cloud-link tag-link-3 tag-link-position-3" style="font-size: 1em;" aria-label="android (325 items)">android<span class="tag-link-count"> (325)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/android-studio/" class="tag-cloud-link tag-link-4 tag-link-position-4" style="font-size: 1em;" aria-label="android-studio (33 items)">android-studio<span class="tag-link-count"> (33)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/c/" class="tag-cloud-link tag-link-10 tag-link-position-5" style="font-size: 1em;" aria-label="c# (568 items)">c#<span class="tag-link-count"> (568)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/css/" class="tag-cloud-link tag-link-33 tag-link-position-6" style="font-size: 1em;" aria-label="css (193 items)">css<span class="tag-link-count"> (193)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/delphi/" class="tag-cloud-link tag-link-17 tag-link-position-7" style="font-size: 1em;" aria-label="delphi (47 items)">delphi<span class="tag-link-count"> (47)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/django/" class="tag-cloud-link tag-link-396 tag-link-position-8" style="font-size: 1em;" aria-label="django (39 items)">django<span class="tag-link-count"> (39)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/html/" class="tag-cloud-link tag-link-32 tag-link-position-9" style="font-size: 1em;" aria-label="html (250 items)">html<span class="tag-link-count"> (250)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/ios/" class="tag-cloud-link tag-link-233 tag-link-position-10" style="font-size: 1em;" aria-label="ios (33 items)">ios<span class="tag-link-count"> (33)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/java/" class="tag-cloud-link tag-link-16 tag-link-position-11" style="font-size: 1em;" aria-label="java (400 items)">java<span class="tag-link-count"> (400)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/javafx/" class="tag-cloud-link tag-link-271 tag-link-position-12" style="font-size: 1em;" aria-label="javafx (28 items)">javafx<span class="tag-link-count"> (28)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/javascript/" class="tag-cloud-link tag-link-8 tag-link-position-13" style="font-size: 1em;" aria-label="javascript (483 items)">javascript<span class="tag-link-count"> (483)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/jquery/" class="tag-cloud-link tag-link-95 tag-link-position-14" style="font-size: 1em;" aria-label="jquery (201 items)">jquery<span class="tag-link-count"> (201)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/json/" class="tag-cloud-link tag-link-11 tag-link-position-15" style="font-size: 1em;" aria-label="json (59 items)">json<span class="tag-link-count"> (59)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/laravel/" class="tag-cloud-link tag-link-34 tag-link-position-16" style="font-size: 1em;" aria-label="laravel (27 items)">laravel<span class="tag-link-count"> (27)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/linux/" class="tag-cloud-link tag-link-47 tag-link-position-17" style="font-size: 1em;" aria-label="linux (77 items)">linux<span class="tag-link-count"> (77)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/mysql/" class="tag-cloud-link tag-link-12 tag-link-position-18" style="font-size: 1em;" aria-label="mysql (156 items)">mysql<span class="tag-link-count"> (156)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/node-js/" class="tag-cloud-link tag-link-239 tag-link-position-19" style="font-size: 1em;" aria-label="node.js (37 items)">node.js<span class="tag-link-count"> (37)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/php/" class="tag-cloud-link tag-link-2 tag-link-position-20" style="font-size: 1em;" aria-label="php (489 items)">php<span class="tag-link-count"> (489)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/python/" class="tag-cloud-link tag-link-128 tag-link-position-21" style="font-size: 1em;" aria-label="python (183 items)">python<span class="tag-link-count"> (183)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/python-3-x/" class="tag-cloud-link tag-link-374 tag-link-position-22" style="font-size: 1em;" aria-label="python-3.x (71 items)">python-3.x<span class="tag-link-count"> (71)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/qt/" class="tag-cloud-link tag-link-57 tag-link-position-23" style="font-size: 1em;" aria-label="qt (42 items)">qt<span class="tag-link-count"> (42)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/reactjs/" class="tag-cloud-link tag-link-294 tag-link-position-24" style="font-size: 1em;" aria-label="reactjs (29 items)">reactjs<span class="tag-link-count"> (29)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/sql/" class="tag-cloud-link tag-link-24 tag-link-position-25" style="font-size: 1em;" aria-label="sql (101 items)">sql<span class="tag-link-count"> (101)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/sql-server/" class="tag-cloud-link tag-link-327 tag-link-position-26" style="font-size: 1em;" aria-label="sql-server (26 items)">sql-server<span class="tag-link-count"> (26)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/ubuntu/" class="tag-cloud-link tag-link-101 tag-link-position-27" style="font-size: 1em;" aria-label="ubuntu (29 items)">ubuntu<span class="tag-link-count"> (29)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/unity3d/" class="tag-cloud-link tag-link-355 tag-link-position-28" style="font-size: 1em;" aria-label="unity3d (30 items)">unity3d<span class="tag-link-count"> (30)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/windows/" class="tag-cloud-link tag-link-44 tag-link-position-29" style="font-size: 1em;" aria-label="windows (42 items)">windows<span class="tag-link-count"> (42)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/winforms/" class="tag-cloud-link tag-link-193 tag-link-position-30" style="font-size: 1em;" aria-label="winforms (33 items)">winforms<span class="tag-link-count"> (33)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/wordpress/" class="tag-cloud-link tag-link-76 tag-link-position-31" style="font-size: 1em;" aria-label="wordpress (56 items)">wordpress<span class="tag-link-count"> (56)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/wpf/" class="tag-cloud-link tag-link-27 tag-link-position-32" style="font-size: 1em;" aria-label="wpf (51 items)">wpf<span class="tag-link-count"> (51)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/xml/" class="tag-cloud-link tag-link-91 tag-link-position-33" style="font-size: 1em;" aria-label="xml (28 items)">xml<span class="tag-link-count"> (28)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/yii2/" class="tag-cloud-link tag-link-102 tag-link-position-34" style="font-size: 1em;" aria-label="yii2 (27 items)">yii2<span class="tag-link-count"> (27)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%b0%d0%bb%d0%b3%d0%be%d1%80%d0%b8%d1%82%d0%bc/" class="tag-cloud-link tag-link-249 tag-link-position-35" style="font-size: 1em;" aria-label="алгоритм (39 items)">алгоритм<span class="tag-link-count"> (39)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%b1%d0%b0%d0%b7%d0%b0-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d1%85/" class="tag-cloud-link tag-link-100 tag-link-position-36" style="font-size: 1em;" aria-label="база-данных (47 items)">база-данных<span class="tag-link-count"> (47)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%b2%d0%b5%d0%b1-%d0%bf%d1%80%d0%be%d0%b3%d1%80%d0%b0%d0%bc%d0%bc%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5/" class="tag-cloud-link tag-link-13 tag-link-position-37" style="font-size: 1em;" aria-label="веб-программирование (33 items)">веб-программирование<span class="tag-link-count"> (33)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%b2%d1%91%d1%80%d1%81%d1%82%d0%ba%d0%b0/" class="tag-cloud-link tag-link-35 tag-link-position-38" style="font-size: 1em;" aria-label="вёрстка (33 items)">вёрстка<span class="tag-link-count"> (33)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%b3%d1%80%d0%b0%d0%bc%d0%be%d1%82%d0%bd%d0%b0%d1%8f-%d1%80%d0%b5%d1%87%d1%8c/" class="tag-cloud-link tag-link-50 tag-link-position-39" style="font-size: 1em;" aria-label="грамотная-речь (30 items)">грамотная-речь<span class="tag-link-count"> (30)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%bc%d0%b0%d1%81%d1%81%d0%b8%d0%b2%d1%8b/" class="tag-cloud-link tag-link-26 tag-link-position-40" style="font-size: 1em;" aria-label="массивы (52 items)">массивы<span class="tag-link-count"> (52)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%be%d1%80%d1%84%d0%be%d0%b3%d1%80%d0%b0%d1%84%d0%b8%d1%8f/" class="tag-cloud-link tag-link-39 tag-link-position-41" style="font-size: 1em;" aria-label="орфография (28 items)">орфография<span class="tag-link-count"> (28)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d0%bf%d1%83%d0%bd%d0%ba%d1%82%d1%83%d0%b0%d1%86%d0%b8%d1%8f/" class="tag-cloud-link tag-link-6 tag-link-position-42" style="font-size: 1em;" aria-label="пунктуация (61 items)">пунктуация<span class="tag-link-count"> (61)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d1%80%d0%b5%d0%b3%d1%83%d0%bb%d1%8f%d1%80%d0%bd%d1%8b%d0%b5-%d0%b2%d1%8b%d1%80%d0%b0%d0%b6%d0%b5%d0%bd%d0%b8%d1%8f/" class="tag-cloud-link tag-link-138 tag-link-position-43" style="font-size: 1em;" aria-label="регулярные-выражения (46 items)">регулярные-выражения<span class="tag-link-count"> (46)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d1%81%d1%82%d1%80%d0%be%d0%ba%d0%b8/" class="tag-cloud-link tag-link-78 tag-link-position-44" style="font-size: 1em;" aria-label="строки (27 items)">строки<span class="tag-link-count"> (27)</span></a></li>
+	<li><a href="http://wp.loadlab.ragozin.info/tag/%d1%8d%d1%82%d0%b8%d0%bc%d0%be%d0%bb%d0%be%d0%b3%d0%b8%d1%8f/" class="tag-cloud-link tag-link-84 tag-link-position-45" style="font-size: 1em;" aria-label="этимология (32 items)">этимология<span class="tag-link-count"> (32)</span></a></li>
+</ul>
+</div>
+</section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+											<li>
+					<a href="http://wp.loadlab.ragozin.info/2019/05/20/%d1%81%d1%80%d0%b0%d0%b1%d0%b0%d1%82%d1%8b%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d1%82%d0%b0%d0%b9%d0%bc%d0%b5%d1%80%d0%b0-javascript-3/">Срабатывание таймера javascript</a>
+									</li>
+											<li>
+					<a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%ba%d0%b0%d0%ba-%d0%be%d0%b4%d0%bd%d0%be%d0%b7%d0%bd%d0%b0%d1%87%d0%bd%d0%be-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d1%82%d1%8c-%d0%bf%d0%b5%d1%80%d0%b5%d0%b2%d0%be%d0%b4-int-byte-in-3/">Как однозначно выполнять перевод int -&gt; byte-&gt; int в Java?</a>
+									</li>
+											<li>
+					<a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%bf%d1%80%d0%be%d0%b2%d0%b5%d1%80%d0%ba%d0%b0-%d0%ba%d0%be%d1%80%d1%80%d0%b5%d0%ba%d1%82%d0%bd%d0%be%d1%81%d1%82%d0%b8-%d0%bf%d0%be%d1%81%d0%bb%d0%b5%d0%b4%d0%be%d0%b2%d0%b0%d1%82%d0%b5%d0%bb-3/">Проверка корректности последовательности в массивах php</a>
+									</li>
+											<li>
+					<a href="http://wp.loadlab.ragozin.info/2019/05/20/qdatetime-%d0%bd%d0%b5-%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d1%82-%d1%88%d0%b0%d0%b1%d0%bb%d0%be%d0%bd-3/">QDateTime не определяет шаблон</a>
+									</li>
+											<li>
+					<a href="http://wp.loadlab.ragozin.info/2019/05/20/%d0%be%d0%bf%d1%80%d0%b5%d0%b4%d0%b5%d0%bb%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9-%d1%88%d1%80%d0%b8%d1%84%d1%82-%d0%bf%d1%80%d0%b8-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b8-%d0%ba%d0%b0%d1%80%d1%82-3/">Определенный шрифт при создании картинки</a>
+									</li>
+					</ul>
+		</section><section id="recent-comments-2" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link">owasp</span> on <a href="http://wp.loadlab.ragozin.info/2019/05/04/hello-world/#comment-26">Hello world!</a></li><li class="recentcomments"><span class="comment-author-link">owasp</span> on <a href="http://wp.loadlab.ragozin.info/2019/05/04/hello-world/#comment-25">Hello world!</a></li><li class="recentcomments"><span class="comment-author-link">owasp</span> on <a href="http://wp.loadlab.ragozin.info/2019/05/04/hello-world/#comment-24">Hello world!</a></li><li class="recentcomments"><span class="comment-author-link">owasp</span> on <a href="http://wp.loadlab.ragozin.info/2019/05/04/hello-world/#comment-23">Hello world!</a></li><li class="recentcomments"><span class="comment-author-link">owasp</span> on <a href="http://wp.loadlab.ragozin.info/2019/05/04/hello-world/#comment-22">Hello world!</a></li></ul></section><section id="archives-2" class="widget widget_archive"><h2 class="widget-title">Archives</h2>		<ul>
+				<li><a href='http://wp.loadlab.ragozin.info/2019/05/'>May 2019</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2019/03/'>March 2019</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2019/02/'>February 2019</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2019/01/'>January 2019</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/12/'>December 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/11/'>November 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/10/'>October 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/09/'>September 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/08/'>August 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/07/'>July 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/06/'>June 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/05/'>May 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/04/'>April 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/03/'>March 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/02/'>February 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2018/01/'>January 2018</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/12/'>December 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/11/'>November 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/10/'>October 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/09/'>September 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/08/'>August 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/07/'>July 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/06/'>June 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/05/'>May 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/04/'>April 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/03/'>March 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/02/'>February 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2017/01/'>January 2017</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/12/'>December 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/11/'>November 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/10/'>October 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/09/'>September 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/08/'>August 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/07/'>July 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/06/'>June 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/05/'>May 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/04/'>April 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/03/'>March 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/02/'>February 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2016/01/'>January 2016</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/12/'>December 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/11/'>November 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/10/'>October 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/09/'>September 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/08/'>August 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/07/'>July 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/06/'>June 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/05/'>May 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/04/'>April 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/03/'>March 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/02/'>February 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2015/01/'>January 2015</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/12/'>December 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/11/'>November 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/10/'>October 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/09/'>September 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/08/'>August 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/07/'>July 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/06/'>June 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/05/'>May 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/04/'>April 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/03/'>March 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/02/'>February 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2014/01/'>January 2014</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/12/'>December 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/11/'>November 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/10/'>October 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/09/'>September 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/08/'>August 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/07/'>July 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/06/'>June 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/05/'>May 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/04/'>April 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/03/'>March 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/02/'>February 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2013/01/'>January 2013</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/12/'>December 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/11/'>November 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/10/'>October 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/09/'>September 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/08/'>August 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/07/'>July 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/06/'>June 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/05/'>May 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/04/'>April 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/03/'>March 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/02/'>February 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2012/01/'>January 2012</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/12/'>December 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/11/'>November 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/10/'>October 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/09/'>September 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/08/'>August 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/07/'>July 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/06/'>June 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/05/'>May 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/04/'>April 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/03/'>March 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/02/'>February 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2011/01/'>January 2011</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2010/12/'>December 2010</a></li>
+	<li><a href='http://wp.loadlab.ragozin.info/2010/10/'>October 2010</a></li>
+		</ul>
+			</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+				<li class="cat-item cat-item-1"><a href="http://wp.loadlab.ragozin.info/category/uncategorized/" >Uncategorized</a>
+</li>
+		</ul>
+			</section><section id="meta-2" class="widget widget_meta"><h2 class="widget-title">Meta</h2>			<ul>
+			<li><a href="http://wp.loadlab.ragozin.info/wp-login.php?action=register">Register</a></li>			<li><a href="http://wp.loadlab.ragozin.info/wp-login.php">Log in</a></li>
+			<li><a href="http://wp.loadlab.ragozin.info/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="http://wp.loadlab.ragozin.info/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
+			<li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>			</ul>
+			</section>	</aside><!-- .sidebar .widget-area -->
+
+		</div><!-- .site-content -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			
+			
+			<div class="site-info">
+								<span class="site-title"><a href="http://wp.loadlab.ragozin.info/" rel="home">Performance testing lab</a></span>
+								<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div><!-- .site-info -->
+		</footer><!-- .site-footer -->
+	</div><!-- .site-inner -->
+</div><!-- .site -->
+
+<script type='text/javascript' src='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/js/skip-link-focus-fix.js?ver=20160816'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='http://wp.loadlab.ragozin.info/wp-content/themes/twentysixteen/js/functions.js?ver=20181230'></script>
+<script type='text/javascript' src='http://wp.loadlab.ragozin.info/wp-includes/js/wp-embed.min.js?ver=5.1.1'></script>
+</body>
+</html>
+
+0
+
