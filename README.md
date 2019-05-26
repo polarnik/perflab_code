@@ -191,7 +191,7 @@ Process finished with exit code 1
 
 В списке конфигураций выбрать Maven.
 
-В качестве команды указать `mvn gatling:test`
+В качестве команды указать `gatling:test`
 
 ![](images/debug.configuration.png)
 
@@ -232,16 +232,16 @@ src/test/resource и нажать кнопку
 
 **Результат**
 
-Каталог **scala** в дереве проекта станет зелёным, появятся новые добные пункты контекстного меню
+Каталог **scala** в дереве проекта станет зелёным, появятся новые пункты контекстного меню
 на этом каталоге и его подкаталогах в разделе **New**:
 
-* создание Scala Class
-* создание Package
+* New / Scala Class
+* New / Package
 
 ![](images/structure.init.png)
 
 
-### Но прежде нужно создать сценарий
+### Нужно создать сценарий
 
 Для ручного создания сценария удобно создать в каталоге src/scala подкаталог для файлов проекта.
 
@@ -307,7 +307,154 @@ class BasicSimulation extends Simulation {
 
 ### Структура сценария
 
+Для проектов по тестированию веб-сервисов характерно, что есть
+REST-API методы, которые имеют говорящие названия:
+
+* /authorize
+* /login
+* /logout
+* /document
+
+и используя различный набор методов и параметров
+
+* GET
+* POST
+* ...
+
+можно выполнять различные действия.
+
+В терминах Play Framework такие методы называются **Action**.
+Логично, что один Action может использоваться в тесте многократно с разными параметрами.
+
+Если в проекте удобно группировать запросы по **Action**, то логично, создать для них отдельный каталог 
+**actions**.
+
+Пример:
+* **actions**
+    * Authorize.scala
+    * Login.scala
+    * Logout.scala
+    
+Если тестируется просто веб-проект, состоящий из страниц, и страницы сложные,
+то удобно группировать действия по страницам,
+то логично, создать для них отдельный каталог **pages**
+
+Пример:
+* **pages**
+    * Index.scala
+    * Document.scala
+    * About.scala
+    
+Комбинация нескольких вызовов из **actions** или **pages** будет сценерием или его частью.
+Удобно создать отдельный каталог для таких фрагментов сценария: **scenariofragments**
 
 
-#### UserVars -- настройки
+Пример:
 
+* **scenariofragments**:
+    * LoginLogout.scala
+    * CreateDocument.scala
+    
+И основной объект для запуска теста -- наследники класса `Simulation`
+Их удобно поместить в отлельный каталог **simulations**
+
+В Simulation-классе останется создать:
+
+1. feed-ер
+2. scenario, с указанием feed-а
+3. вызвать метод setUp, в который передать
+    * scenario
+    * профиль нагрузки
+    * настройки протокола
+    
+Настройки удобно разместить в каталоге **settings**
+
+Получиласт такая структура
+
+* scala
+    * Package (по имени тестируемой системы), например info.ragozin.loadlab
+        * **actions**
+        * **scenariofragments**
+        * **settings**        
+        * **simulations**
+    * Engine.scala
+    * IDEPathHelper.scala
+    * Recorder.scala
+
+#### Создадим структуру каталогов
+
+на каталоге `src` / `test` / `scala` вызываем действие
+
+New / Package
+
+и указываем
+
+* `info.ragozin.loadlab.wp.actions`
+* `info.ragozin.loadlab.wp.scenariofragments`
+* `info.ragozin.loadlab.wp.settings`
+* `info.ragozin.loadlab.wp.simulations`
+
+Получится такая структура:
+
+![](images/structure.init.2.png)
+
+#### Создадим первый сценарий (пока без соблюдения струтуры)
+
+Создадим простой сценарий, где все объекты находятся в одном файле:
+
+
+src / test / scala / simulations / RefreshIndexPage.scala
+
+```scala
+package info.ragozin.loadlab.wp.simulations
+
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
+import scala.concurrent.duration._
+import scala.language.postfixOps
+
+class RefreshIndexPage  extends Simulation {
+
+  // Настройки (Settings) для протокола http
+  val httpConf = http.baseUrl("http://wp.loadlab.ragozin.info")
+
+  // Экземпляр сценария -- обновление главной страницы 200 раз
+  val refreshIndexPage = scenario("RefreshIndexPage300").exec(
+    group("Refresh IndexPage 50 times") {
+      exec(Index.refreshIndexManyTimes(50))
+    }
+    .group("Refresh IndexPage 100 times") {
+      exec(Index.refreshIndexManyTimes(100))
+    }
+    .group("Refresh IndexPage 150 times") {
+      exec(Index.refreshIndexManyTimes(150))
+    }      
+    )
+
+  // Запуск теста
+  setUp(
+    // Профиль нагрузки -- запуск одного пользователя
+    refreshIndexPage.inject(atOnceUsers(1)).protocols(httpConf)
+  )
+}
+
+object Index {
+
+  // Действие (Action) -- открытие главной страницы
+  def openIndexPage =
+    exec(http("Index").get("/").check(status.is(200)))
+
+  // Сценарий (ScenarioFragment) -- обновление главной страницы несколько раз
+  def refreshIndexManyTimes(times: Int = 1 ) = repeat(times) {
+    openIndexPage
+  }
+}
+```
+
+### Выполнение сценария
+
+Если теперь выполнить сценарий, то ошибок не будет
+
+Пример отчёта:
+
+[RefreshIndexPage300](report/gatling/refreshindexpage-20190526084132672/index.html )

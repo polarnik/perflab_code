@@ -1,0 +1,10 @@
+{
+  "simulation": "info.ragozin.loadlab.wp.simulations.RefreshIndexPage",
+  "simulationId": "refreshindexpage",
+  "start": 1558860092672,
+  "description": "",
+  "scenarios": ["RefreshIndexPage300"],
+  "assertions": [
+
+  ]
+}
