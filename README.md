@@ -398,7 +398,7 @@ New / Package
 
 ![](images/structure.init.2.png)
 
-#### Создадим первый сценарий (пока без соблюдения струтуры)
+#### Создадим первый сценарий (пока без соблюдения структуры)
 
 Создадим простой сценарий, где все объекты находятся в одном файле:
 
@@ -418,19 +418,23 @@ class RefreshIndexPage  extends Simulation {
   // Настройки (Settings) для протокола http
   val httpConf = http.baseUrl("http://wp.loadlab.ragozin.info")
 
-  // Экземпляр сценария -- обновление главной страницы 200 раз
-  val refreshIndexPage = scenario("RefreshIndexPage300").exec(
-    group("Refresh IndexPage 50 times") {
-      exec(Index.refreshIndexManyTimes(50))
-    }
-    .group("Refresh IndexPage 100 times") {
-      exec(Index.refreshIndexManyTimes(100))
-    }
-    .group("Refresh IndexPage 150 times") {
-      exec(Index.refreshIndexManyTimes(150))
-    }      
-    )
-
+  // Экземпляр сценария -- обновление главной страницы 500 раз
+  val refreshIndexPage = scenario("RefreshIndexPage500").exec(
+      // Группа методов -- аналог Transaction Contoller в Apache.JMeter
+      group("Refresh Index 200") {
+        // Группа может содержать одно действие или фрагмент сценария
+        exec(Index.refreshIndexManyTimes(200))
+      }
+      .group("Refresh Index 300") {
+        // Или несколько действий
+        exec(Index.refreshIndexManyTimes(10))
+          .exec(Index.refreshIndexManyTimes(20))
+          .exec(Index.refreshIndexManyTimes(30))
+          .exec(Index.refreshIndexManyTimes(40))
+          .exec(Index.refreshIndexManyTimes(200))
+      }
+  )
+  
   // Запуск теста
   setUp(
     // Профиль нагрузки -- запуск одного пользователя
