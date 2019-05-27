@@ -462,3 +462,45 @@ object Index {
 Пример отчёта:
 
 [RefreshIndexPage300](report/gatling/refreshindexpage-20190526084132672/index.html )
+
+## Параметризация запуска (выбор симуляции)
+
+Если создать несколько симуляций. То можно добавить выбор, что именно запускать.
+
+Пусть у нас есть два класса:
+* info.ragozin.loadlab.wp.simulations.RefreshIndexPage
+* info.ragozin.loadlab.wp.simulations.RefreshIndexPageWithStructure
+
+Чтобы добавить фильтр по классам можно добавить в pom.xml такую секцию:
+
+```xml
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.gatling</groupId>
+        <artifactId>gatling-maven-plugin</artifactId>
+        <version>${gatling-maven-plugin.version}</version>
+
+          <configuration>
+            <runMultipleSimulations>true</runMultipleSimulations>
+            <includes>
+              <param>info.ragozin.loadlab.wp.simulations.${simulation}</param>
+            </includes>
+          </configuration>
+      </plugin>
+    </plugins>
+  </build>
+```
+
+И задавать значение свойства simulation через параметр -D Maven:
+* `RefreshIndexPage`
+* `RefreshIndexPageWithStructure`
+* `*` (для двух классов)
+
+Тогда пример запуска:
+
+```
+gatling:test -Dsimulation=RefreshIndexPage
+```
+
+![](images/debug.configuration.2.png)
