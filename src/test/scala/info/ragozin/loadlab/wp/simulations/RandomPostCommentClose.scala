@@ -34,8 +34,8 @@ class RandomPostCommentClose extends Simulation {
   setUp(
     randomPostComment.inject(
 
-      constantConcurrentUsers(2) during (30 seconds),
-      rampConcurrentUsers(2) to (10) during (30 seconds)
+      constantConcurrentUsers(1) during (30 seconds),
+      rampConcurrentUsers(1) to (10) during (30 seconds)
     ).protocols(httpConf)
   )
 }
