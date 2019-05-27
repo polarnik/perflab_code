@@ -2,9 +2,6 @@ package info.ragozin.loadlab.wp.simulations
 
 import info.ragozin.loadlab.wp.{scenariofragments, settings}
 import io.gatling.core.Predef.{exec, _}
-import io.gatling.http.Predef._
-
-import scala.concurrent.duration._
 import scala.language.postfixOps
 
 class RandomPostComment extends Simulation {
@@ -17,7 +14,7 @@ class RandomPostComment extends Simulation {
 
   val randomPost = new scenariofragments.RandomPost();
 
-  // Экземпляр сценария -- обновление главной страницы 500 раз
+  // Экземпляр сценария -- открытие случайной записи и добавление комментария к ней
   val randomPostComment = scenario("RandomPostComment")
     .feed(csvComments)
     .feed(csvUsers)
@@ -41,7 +38,6 @@ class RandomPostComment extends Simulation {
         session
       }
     )
-
 
   // Запуск теста
   setUp(

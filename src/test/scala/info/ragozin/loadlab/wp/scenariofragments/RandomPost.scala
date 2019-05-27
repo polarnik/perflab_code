@@ -4,7 +4,6 @@ import info.ragozin.loadlab.wp.actions
 
 import scala.language.postfixOps
 import io.gatling.core.Predef._
-import io.gatling.core.session.SessionAttribute
 import io.gatling.http.Predef._
 
 class RandomPost {
@@ -18,7 +17,6 @@ class RandomPost {
       session.set("pageNumber", (Math.random() * 100.0).toInt + 1)
     ).exec(
       posts.getListPosts("${pageNumber}")
-        //.transform(idArray => idArray[java.util.concurrent.ThreadLocalRandom.current().nextInt(idArray.count())])
         .check(jsonPath("$..id").saveAs("randomPostId"))
     )
   }
