@@ -120,6 +120,7 @@
                     <resultsFileFormat>csv</resultsFileFormat>
                     <generateReports>true</generateReports>
                     <resultsDirectory>${project.build.directory}/jmeter/results</resultsDirectory>
+                    <reportDirectory>${project.build.directory}/jmeter/reports/${jmx}-${maven.build.timestamp}</reportDirectory>
 
                     <!-- Configuring the jvm that the jmeter process runs in
                     https://github.com/jmeter-maven-plugin/jmeter-maven-plugin/wiki/Configuring-the-jvm-that-the-jmeter-process-runs-in
