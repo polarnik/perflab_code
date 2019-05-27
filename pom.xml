@@ -1,0 +1,196 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>info.ragozin.loadlab</groupId>
+    <artifactId>jmeter-web</artifactId>
+    <version>0.1.0</version>
+    <name>jmeter-report</name>
+    <description>Apache.JMeter test for http://wp.loadlab.ragozin.info/</description>
+
+    <!-- Properties -->
+    <properties>
+        <!-- Test name -->
+        <jmx>jmeter-report</jmx>
+        <influxdb.host>metrics.loadlab.ragozin.info</influxdb.host>
+        <influxdb.port>8086</influxdb.port>
+        <influxdb.database>jmeterdb</influxdb.database>
+        <influxdb.username>none</influxdb.username>
+        <influxdb.password>none</influxdb.password>
+
+        <jmeter.maven.plugin.version>2.9.0</jmeter.maven.plugin.version>
+        <jmeter.version>5.1.1</jmeter.version>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/polarnik/perflab_code/tree/jmeter-web</url>
+        <connection>https://github.com/polarnik/perflab_code.git</connection>
+        <developerConnection>git@github.com:polarnik/perflab_code.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>polarnik</id>
+            <name>SMIRNOV Vyacheslav</name>
+            <email>owasp@yandex.ru</email>
+            <url>https://github.com/polarnik</url>
+        </developer>
+    </developers>
+
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.lazerycode.jmeter</groupId>
+                <artifactId>jmeter-maven-plugin</artifactId>
+                <version>${jmeter.maven.plugin.version}</version>
+
+                <configuration>
+                    <testFilesIncluded>
+                        <jMeterTestFile>${jmx}.jmx</jMeterTestFile>
+                    </testFilesIncluded>
+                    <jmeterVersion>${jmeter.version}</jmeterVersion>
+
+                    <jmeterExtensions>
+                        <!-- Custom Thread Groups
+                        https://jmeter-plugins.org/?search=jpgc-casutg
+			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-casutg/
+			            -->
+                        <artifact>kg.apc:jmeter-plugins-casutg:2.8</artifact>
+
+                        <!-- JMeter Listener pack -->
+                        <artifact>cloud.testload:jmeter.pack-listener:1.5</artifact>
+
+                        <!-- Random CSV Data Set -->
+                        <artifact>com.blazemeter:jmeter-plugins-random-csv-data-set:0.6</artifact>
+                    </jmeterExtensions>
+
+                    <testPlanLibraries>
+                        <!-- JMeter Plugins Common Classes: Various utility classes to ease development of plugins
+			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-cmn-jmeter/
+			            -->
+                        <artifact>kg.apc:jmeter-plugins-cmn-jmeter:0.6</artifact>
+                    </testPlanLibraries>
+
+                    <downloadExtensionDependencies>false</downloadExtensionDependencies>
+                    <downloadLibraryDependencies>false</downloadLibraryDependencies>
+                    <downloadOptionalDependencies>false</downloadOptionalDependencies>
+                    <downloadJMeterDependencies>false</downloadJMeterDependencies>
+
+                    <propertiesUser>
+                        <data.dir>${project.basedir}/src/test/jmeter/data</data.dir>
+
+                        <influxdb.host>${influxdb.host}</influxdb.host>
+                        <influxdb.port>${influxdb.port}</influxdb.port>
+                        <influxdb.database>${influxdb.database}</influxdb.database>                        
+                    </propertiesUser>
+
+                    <propertiesJMeter>
+                        <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
+                        <jmeter.save.saveservice.subresults>true</jmeter.save.saveservice.subresults>
+                        <sample_variables></sample_variables>
+                        <!-- # Disable sent statistics to https://jmeter-plugins.org/stats/ -->
+                        <jpgc.repo.sendstats>false</jpgc.repo.sendstats>
+                        <sampleresult.default.encoding>UTF-8</sampleresult.default.encoding>
+                    </propertiesJMeter>
+
+                    <testResultsTimestamp>false</testResultsTimestamp>
+                    <overrideRootLogLevel>WARN</overrideRootLogLevel>
+                    <suppressJMeterOutput>false</suppressJMeterOutput>
+                    <ignoreResultFailures>true</ignoreResultFailures>
+                    <guiTestFile>${project.basedir}/src/test/jmeter/${jmx}.jmx</guiTestFile>
+
+
+
+                    <propertiesReportGenerator>
+                        <jmeter.reportgenerator.overall_granularity>1000</jmeter.reportgenerator.overall_granularity>
+                        <jmeter.reportgenerator.graph.responseTimeDistribution.property.set_granularity>1000</jmeter.reportgenerator.graph.responseTimeDistribution.property.set_granularity>
+                    </propertiesReportGenerator>
+
+
+
+                    <resultsFileFormat>csv</resultsFileFormat>
+                    <generateReports>true</generateReports>
+                    <resultsDirectory>${project.build.directory}/jmeter/results</resultsDirectory>
+
+                    <!-- Configuring the jvm that the jmeter process runs in
+                    https://github.com/jmeter-maven-plugin/jmeter-maven-plugin/wiki/Configuring-the-jvm-that-the-jmeter-process-runs-in
+                    http://reins.altervista.org/java/A_Collection_of_JVM_Options_MP.html
+                    https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+                    -->
+                    <jMeterProcessJVMSettings>
+                        <xms>32</xms>
+                        <xmx>512</xmx>
+                        <arguments>
+                            <argument>-XX:MaxMetaspaceSize=256m</argument>
+
+                            <argument>-XX:+UseG1GC</argument>
+                            <argument>-XX:MaxGCPauseMillis=100</argument>
+                            <argument>-XX:G1ReservePercent=20</argument>
+
+                            <argument>-Duser.language=en</argument>
+                            <argument>-Duser.region=EN</argument>
+
+                            <argument>-Dfile.encoding=UTF-8</argument>
+
+                            <argument>-XX:-HeapDumpOnOutOfMemoryError</argument>
+                            <argument>-server</argument>
+                        </arguments>
+                    </jMeterProcessJVMSettings>                    
+                </configuration>
+
+
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <profiles>
+        <!-- HTTP proxy configuration -->
+        <profile>
+            <id>proxy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+                        <configuration>
+                                <proxyConfig>
+                                    <host>127.0.0.1</host>
+                                    <port>8888</port>
+                                </proxyConfig>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <!-- SOCKS proxy configuration -->
+        <profile>
+            <id>socks</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.lazerycode.jmeter</groupId>
+                        <artifactId>jmeter-maven-plugin</artifactId>
+                        <configuration>
+                            <jMeterProcessJVMSettings>
+                                <arguments>
+                                    <argument>-DsocksProxyHost=127.0.0.1</argument>
+                                    <argument>-DsocksProxyPort=8888</argument>
+                                </arguments>
+                            </jMeterProcessJVMSettings>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+</project>
