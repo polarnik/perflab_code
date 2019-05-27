@@ -139,18 +139,18 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="363362057">
-            <stringProp name="50">2</stringProp>
+          <collectionProp name="-1600739374">
+            <stringProp name="53">5</stringProp>
             <stringProp name="48">0</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="60">60</stringProp>
+            <stringProp name="48687">120</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
-          <collectionProp name="1051893135">
-            <stringProp name="50">2</stringProp>
-            <stringProp name="1598">20</stringProp>
+          <collectionProp name="1606175073">
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="1629">30</stringProp>
             <stringProp name="48">0</stringProp>
-            <stringProp name="1598">20</stringProp>
+            <stringProp name="1722">60</stringProp>
             <stringProp name="48">0</stringProp>
           </collectionProp>
         </collectionProp>
@@ -616,7 +616,7 @@
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="post_title" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">post_title</stringProp>
                       <stringProp name="Argument.value">${Title}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
@@ -630,7 +630,7 @@
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
                     <elementProp name="content" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                      <boolProp name="HTTPArgument.always_encode">true</boolProp>
                       <stringProp name="Argument.name">content</stringProp>
                       <stringProp name="Argument.value">${Body}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
@@ -822,13 +822,6 @@
                       <boolProp name="HTTPArgument.always_encode">false</boolProp>
                       <stringProp name="Argument.name">post_name</stringProp>
                       <stringProp name="Argument.value"></stringProp>
-                      <stringProp name="Argument.metadata">=</stringProp>
-                      <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                    </elementProp>
-                    <elementProp name="post_author_override" elementType="HTTPArgument">
-                      <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                      <stringProp name="Argument.name">post_author_override</stringProp>
-                      <stringProp name="Argument.value">${post_author_override}</stringProp>
                       <stringProp name="Argument.metadata">=</stringProp>
                       <boolProp name="HTTPArgument.use_equals">true</boolProp>
                     </elementProp>
