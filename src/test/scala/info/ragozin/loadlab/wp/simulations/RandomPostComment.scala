@@ -53,7 +53,7 @@ class RandomPostComment extends Simulation {
 
       nothingFor(5 seconds),
 
-      //10 пользователей запускаются равномерно в течение 10 сек (1 пользователь в сек)
+      //10 пользователей запускаются равномерно в течение 30 сек (1/3 пользователь в сек)
       rampUsers(10) during (30 seconds),
 
       nothingFor(5 seconds),

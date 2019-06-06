@@ -45,7 +45,7 @@
         <configuration>
           <runMultipleSimulations>true</runMultipleSimulations>
           <includes>
-            <include>info.ragozin.loadlab.wp.simulations.*</include>
+            <include>info.ragozin.loadlab.wp.simulations.RandomPostComment</include>
           </includes>
         </configuration>
       </plugin>
